@@ -1,0 +1,268 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Nuestro Álbum ❤️</title>
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Montserrat', sans-serif;
+      background: linear-gradient(120deg, #75d8ff, #7e96ff);
+      color: white;
+      text-align: center;
+    }
+
+    header {
+      padding: 40px 20px 20px;
+    }
+
+    h1 {
+      font-family: 'Great Vibes', cursive;
+      font-size: 3.5em;
+      margin-bottom: 10px;
+    }
+
+    .gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+      gap: 15px;
+      padding: 30px;
+      max-width: 1000px;
+      margin: auto;
+    }
+
+    .photo {
+      position: relative;
+      border-radius: 15px;
+      overflow: hidden;
+      cursor: pointer;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+      background: white;
+    }
+
+    .photo img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.3s;
+    }
+
+    .photo:hover img {
+      transform: scale(1.05);
+    }
+
+    .overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(0,0,0,0.65);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      opacity: 0;
+      transition: 0.3s;
+      padding: 15px;
+      font-size: 1em;
+    }
+
+    .photo:hover .overlay {
+      opacity: 1;
+    }
+
+    /* MODAL */
+    .modal {
+      position: fixed;
+      inset: 0;
+      background: rgba(0,0,0,0.85);
+      display: none;
+      align-items: center;
+      justify-content: center;
+      z-index: 999;
+      padding: 20px;
+    }
+
+    .modal-content {
+      background: #fff;
+      border-radius: 15px;
+      max-width: 800px;
+      width: 100%;
+      padding: 15px;
+      color: #333;
+      animation: zoom 0.3s ease;
+    }
+
+    @keyframes zoom {
+      from {transform: scale(0.7);}
+      to {transform: scale(1);}
+    }
+
+    .modal img {
+      width: 100%;
+      border-radius: 10px;
+      margin-bottom: 10px;
+    }
+
+    .modal p {
+      font-size: 1.1em;
+    }
+
+    .close {
+      position: absolute;
+      top: 15px;
+      right: 20px;
+      font-size: 30px;
+      color: white;
+      cursor: pointer;
+    }
+
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Feliz San Valentín ❤️</h1>
+</header>
+
+<section class="gallery">
+  <div class="photo" onclick="openModal('Fotos/1.jpeg', 'yo manquito')">
+    <img src="Fotos/1.jpeg">
+    <div class="overlay">Yo manquito</div>
+  </div>
+
+  <div class="photo" onclick="openModal('Fotos/2.jpeg', '' )">
+    <img src="Fotos/2.jpeg">
+  </div>
+
+  <div class="photo" onclick="openModal('Fotos/3.jpeg', '' )">
+    <img src="Fotos/3.jpeg">
+  </div>
+    
+  <div class="photo" onclick="openModal('Fotos/4.jpeg', 'picajosin')">
+    <img src="Fotos/4.jpeg">
+    <div class="overlay">Tu picajoso</div>
+  </div>
+
+  <div class="photo" onclick="openModal('Fotos/5.jpeg', '' )">
+    <img src="Fotos/5.jpeg">
+    <div class="overlay">Miradita de niño bueno</div>
+  </div>
+
+   <div class="photo" onclick="openModal('Fotos/6.jpeg', 'Aquí estabas cabreado que no querías fotos' )">
+    <img src="Fotos/6.jpeg">
+  </div>
+  
+    <div class="photo" onclick="openModal('Fotos/7.jpeg', '' )">
+    <img src="Fotos/7.jpeg">
+  </div>
+
+    <div class="photo" onclick="openModal('Fotos/8.jpeg', 'Borracho feliz' )">
+    <img src="Fotos/8.jpeg">
+    <div class="overlay">Feliz con su vinito frances</div>
+  </div>
+
+    <div class="photo" onclick="openModal('Fotos/9.jpeg', '' )">
+    <img src="Fotos/9.jpeg">
+  </div>
+
+  <div class="photo" onclick="openModal('Fotos/10.jpeg', '' )">
+    <img src="Fotos/10.jpeg">
+  </div>
+
+    <div class="photo" onclick="openModal('Fotos/11.jpeg', '' )">
+    <img src="Fotos/11.jpeg">
+  </div>
+
+  <div class="photo" onclick="openModal('Fotos/12.jpeg', 'Se nos daría bien')">
+    <img src="Fotos/12.jpeg">
+    <div class="overlay">Nosostros si fueramos padres</div>
+   </div>
+
+    <div class="photo" onclick="openModal('Fotos/13.jpeg', 'Aquí me enamore aún más de tu sobaco' )">
+    <img src="Fotos/13.jpeg">
+    <div class="overlay">Muchas gracias por este viaje</div>
+  </div>
+
+    <div class="photo" onclick="openModal('Fotos/14.jpeg', '' )">
+    <img src="Fotos/14.jpeg">
+  </div>
+
+    <div class="photo" onclick="openModal('Fotos/15.jpeg', 'Borrachillo en la feria' )">
+    <img src="Fotos/15.jpeg">
+    <div class="overlay">En mi estado natural</div>
+  </div>
+
+    <div class="photo" onclick="openModal('Fotos/16.jpeg', '' )">
+    <img src="Fotos/16.jpeg">
+  </div>
+
+    <div class="photo" onclick="openModal('Fotos/17.jpeg', 'No se que estabamos haciendo' )">
+    <img src="Fotos/17.jpeg">
+  </div>
+
+    <div class="photo" onclick="openModal('Fotos/18.jpeg', '' )">
+    <img src="Fotos/18.jpeg">
+  </div>
+
+    <div class="photo" onclick="openModal('Fotos/19.jpeg', '' )">
+    <img src="Fotos/19.jpeg">
+  </div>
+
+    <div class="photo" onclick="openModal('Fotos/20.jpeg', 'sudaditos' )">
+    <img src="Fotos/20.jpeg">
+    <div class="overlay">Tenemos que salir más a correr juntos</div>
+  </div>
+
+    <div class="photo" onclick="openModal('Fotos/21.jpeg', '' )">
+    <img src="Fotos/21.jpeg">
+  </div>
+
+    <div class="photo" onclick="openModal('Fotos/22.jpeg', 'Haciendonos los interesantes mirando a la nada' )">
+    <img src="Fotos/22.jpeg">
+    <div class="overlay">Haciendonos los interesantes mirando a la nada</div>
+  </div>
+
+    <div class="photo" onclick="openModal('Fotos/23.jpeg', '' )">
+    <img src="Fotos/23.jpeg">
+  </div>
+
+    <div class="photo" onclick="openModal('Fotos/24.jpeg', '😋😋' )">
+    <img src="Fotos/24.jpeg">
+    <div class="overlay">😋😋</div>
+  </div>
+
+
+   
+</section>
+
+<!-- MODAL -->
+<div class="modal" id="modal">
+  <span class="close" onclick="closeModal()">×</span>
+  <div class="modal-content">
+    <img id="modalImg">
+    <p id="modalText"></p>
+  </div>
+</div>
+
+<script>
+  function openModal(img, text) {
+    document.getElementById("modal").style.display = "flex";
+    document.getElementById("modalImg").src = img;
+    document.getElementById("modalText").innerText = text;
+  }
+
+  function closeModal() {
+    document.getElementById("modal").style.display = "none";
+  }
+
+  window.onclick = function(e) {
+    if (e.target == document.getElementById("modal")) {
+      closeModal();
+    }
+  }
+</script>
+
+</body>
+</html>
+
+   
